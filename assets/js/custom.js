@@ -6,12 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
     canvas.height = 160
 
     navigator.getUserMedia({ video: true },
-        () => video.src = window.URL.createObjectURL(stream),
+        (stream) => video.srcObject = stream,
         e => { });
 
     function draw() {
         if (video.paused || video.ended) return false;
-        context.drawImage(v, 0, 0, w, h);
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
         // map rgb data to palette
         //
         // convert canvas to pxt image
@@ -21,4 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // draw at 50fps
     setInterval(draw, 20);
+    video.muted = true;
+    video.play();
 })
