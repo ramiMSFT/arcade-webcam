@@ -1,39 +1,6 @@
 const WIDTH = 160;
 const HEIGHT = 120;
 
-function rgb(r, g, b) {
-    return ((r & 0xff) << 16) | ((g & 0xff) << 8) | (b & 0xff);
-}
-const palette = {
-};
-
-function addPaletteEntry(r, g, b, i) {
-    palette[rgb(r, g, b)] = {
-        r, g, b,
-        index: i
-    };
-}
-
-addPaletteEntry(0xff, 0xff, 0xff, 1);
-addPaletteEntry(0xff, 0x21, 0x21, 2);
-addPaletteEntry(0xff, 0x93, 0xc4, 3);
-addPaletteEntry(0xff, 0x81, 0x35, 4);
-addPaletteEntry(0xff, 0xf6, 0x09, 5);
-addPaletteEntry(0x24, 0x9c, 0xa3, 6);
-addPaletteEntry(0x78, 0xdc, 0x52, 7);
-addPaletteEntry(0x00, 0x3f, 0xad, 8);
-addPaletteEntry(0x87, 0xf2, 0xff, 9);
-addPaletteEntry(0x8e, 0x2e, 0xc4, 10);
-addPaletteEntry(0xa4, 0x83, 0x9f, 11);
-addPaletteEntry(0x5c, 0x40, 0x6c, 12);
-addPaletteEntry(0xe5, 0xcd, 0xc4, 13);
-addPaletteEntry(0x91, 0x46, 0x3d, 14);
-addPaletteEntry(0x00, 0x00, 0x00, 15);
-
-const colormap = {
-
-};
-
 document.addEventListener("DOMContentLoaded", function () {
     const palettemap = document.createElement("img");
     palettemap.src = "./assets/img/arcade-hsp.png";
@@ -57,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(devices => {
                     const cameras = devices
                         .filter(device => device.kind === "videoinput")
+                        // TODO: Add webcam select UI
                         .filter(device => !/^Snap/i.test(device.label))
                         .filter(device => !/^AvStream/i.test(device.label))
                         .filter(device => !/^OBS/i.test(device.label))
@@ -155,15 +123,47 @@ function packImageFromBuffer(buf, r) {
     r[5] = HEIGHT >> 8;
 
     for (let dstP = 8, i = 0; i < WIDTH; ++i) {
-        for (let j = 0; j < HEIGHT; j += 2) {
+        for (let j = 0; j < HEIGHT; j += 2, ++dstP) {
             const p = j * WIDTH + i;
-            r[dstP++] = (buf[p + WIDTH] << 4) | (buf[p] & 0x0f);
+            r[dstP] = (buf[p + WIDTH] << 4) | (buf[p] & 0x0f);
         }
     }
 }
 
-// Using HSP color space
-// http://alienryderflex.com/hsp.html
+//===================================================================
+// Software palette mapping -- to be removed once it's working on GPU
+
+function rgb(r, g, b) {
+    return ((r & 0xff) << 16) | ((g & 0xff) << 8) | (b & 0xff);
+}
+const palette = {
+};
+
+function addPaletteEntry(r, g, b, i) {
+    palette[rgb(r, g, b)] = {
+        r, g, b,
+        index: i
+    };
+}
+
+addPaletteEntry(0xff, 0xff, 0xff, 1);
+addPaletteEntry(0xff, 0x21, 0x21, 2);
+addPaletteEntry(0xff, 0x93, 0xc4, 3);
+addPaletteEntry(0xff, 0x81, 0x35, 4);
+addPaletteEntry(0xff, 0xf6, 0x09, 5);
+addPaletteEntry(0x24, 0x9c, 0xa3, 6);
+addPaletteEntry(0x78, 0xdc, 0x52, 7);
+addPaletteEntry(0x00, 0x3f, 0xad, 8);
+addPaletteEntry(0x87, 0xf2, 0xff, 9);
+addPaletteEntry(0x8e, 0x2e, 0xc4, 10);
+addPaletteEntry(0xa4, 0x83, 0x9f, 11);
+addPaletteEntry(0x5c, 0x40, 0x6c, 12);
+addPaletteEntry(0xe5, 0xcd, 0xc4, 13);
+addPaletteEntry(0x91, 0x46, 0x3d, 14);
+addPaletteEntry(0x00, 0x00, 0x00, 15);
+
+const colormap = {
+};
 
 // Rec. 601 luma coefficients
 // https://en.wikipedia.org/wiki/Luma_(video)
