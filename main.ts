@@ -29,8 +29,8 @@ namespace webcam {
 
         control.simmessages.onReceived(CHANNEL, function(msg: Buffer) {
             // buffer is the encoded image
-            //currentFrame = image.ofBuffer(msg);
-            //control.raiseEvent(EVENT_ID, FRAME_EVENT)
+            currentFrame = image.ofBuffer(msg);
+            control.raiseEvent(EVENT_ID, FRAME_EVENT)
         })
     }
 }
@@ -39,11 +39,7 @@ namespace webcam {
 webcam.onFrameReceived(function() {
     const frame = webcam.currentFrame;
     if (frame) {
-        //scene.setBackgroundImage(frame)
+        scene.setBackgroundImage(frame)
+        scene.setBackgroundColor(Math.pickRandom([1,2,3,4,5,6,7,8,9,10,11,12,13,14]))
     }
-})
-
-game.onUpdate(function() {
-      scene.setBackgroundColor(Math.pickRandom([1,2,3,4,5,6,7,8,9,10,11,12,13,14]))
-  
 })
