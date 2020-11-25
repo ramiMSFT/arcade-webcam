@@ -1,5 +1,5 @@
-// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.3.15/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.2","target":"arcade","targetVersion":"1.3.15","repo":"eanders-ms/arcade-webcam"}
-// total=1150322 new=6.66% cached=87.75% other=5.58%
+// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.3.15/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.3","target":"arcade","targetVersion":"1.3.15","repo":"eanders-ms/arcade-webcam"}
+// total=1150326 new=6.66% cached=87.75% other=5.58%
 (function (ectx) {
 'use strict';
 const runtime = ectx.runtime;
@@ -382,7 +382,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P31997(s) {
+function _main___P32137(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -750,25 +750,25 @@ switch (step) {
     s.callLocIdx = 60; s.pc = 32; return s.tmp_0;
   case 32:
     r0 = s.retval;
-    s.tmp_0 = webcam_onFrameReceived__P19587_mk(s);
-    s.tmp_0.arg0 = inline__P21620;
-    s.callLocIdx = 62; s.pc = 33; return s.tmp_0;
+    globals.CHANNEL___32072 = ("webcam");
+    globals.initialized___32079 = (false);
+    globals.currentFrame___32081 = (undefined);
+    s.tmp_0 = webcam_onFrameReceived__P32082_mk(s);
+    s.tmp_0.arg0 = inline__P32107;
+    s.callLocIdx = 66; s.pc = 33; return s.tmp_0;
   case 33:
     r0 = s.retval;
-    globals.CHANNEL___21627 = ("webcam");
-    globals.initialized___21634 = (false);
-    globals.currentFrame___19586 = (undefined);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-_main___P31997.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
-_main___P31997.continuations = [  ]
+_main___P32137.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"main.ts","functionName":"<main>","argumentNames":[]}
+_main___P32137.continuations = [  ]
 
-function _main___P31997_mk(s) {
+function _main___P32137_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P31997, depth: s.depth + 1,
+        parent: s, fn: _main___P32137, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -1355,7 +1355,7 @@ function inline__P20436_mk(s) {
 
 
 
-function inline__P21620(s) {
+function inline__P32107(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1365,13 +1365,13 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.frame___21621 = undefined;
-    s.frame___21621 = (globals.currentFrame___19586);
-    r0 = pxsim_numops_toBoolDecr(s.frame___21621);
+    s.frame___32108 = undefined;
+    s.frame___32108 = (globals.currentFrame___32081);
+    r0 = pxsim_numops_toBoolDecr(s.frame___32108);
     if (!r0) { step = 1; continue; }
     s.tmp_0 = scene_setBackgroundImage__P18575_mk(s);
-    s.tmp_0.arg0 = s.frame___21621;
-    s.callLocIdx = 61; s.pc = 3; return s.tmp_0;
+    s.tmp_0.arg0 = s.frame___32108;
+    s.callLocIdx = 65; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
   case 1:
@@ -1380,15 +1380,15 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P21620.info = {"start":59,"length":108,"line":1,"column":23,"endLine":5,"endColumn":1,"fileName":"test.ts","functionName":"inline","argumentNames":[]}
+inline__P32107.info = {"start":1005,"length":108,"line":38,"column":23,"endLine":42,"endColumn":1,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P21620_mk(s) {
+function inline__P32107_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P21620, depth: s.depth + 1,
+        parent: s, fn: inline__P32107, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
-  frame___21621: undefined,
+  frame___32108: undefined,
 } }
 
 
@@ -1539,7 +1539,7 @@ function scene_Background_image__P18394_mk(s) {
 
 
 
-function webcam_onFrameReceived__P19587(s) {
+function webcam_onFrameReceived__P32082(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1553,11 +1553,11 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    s.tmp_0 = webcam_init__P21637_mk(s);
-    s.callLocIdx = 63; s.pc = 1; return s.tmp_0;
+    s.tmp_0 = webcam_init__P32085_mk(s);
+    s.callLocIdx = 61; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, inline__P21641);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P32089);
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
     s.tmp_1 = control_onEvent__P16498_mk(s);
@@ -1565,19 +1565,19 @@ switch (step) {
     s.tmp_1.arg1 = 1;
     s.tmp_1.arg2 = s.tmp_0;
     s.tmp_1.arg3 = 16;
-    s.callLocIdx = 65; s.pc = 2; return s.tmp_1;
+    s.callLocIdx = 63; s.pc = 2; return s.tmp_1;
   case 2:
     r0 = s.retval;
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-webcam_onFrameReceived__P19587.info = {"start":417,"length":198,"line":17,"column":4,"endLine":23,"endColumn":5,"fileName":"main.ts","functionName":"onFrameReceived","argumentNames":["handler"]}
+webcam_onFrameReceived__P32082.info = {"start":417,"length":198,"line":17,"column":4,"endLine":23,"endColumn":5,"fileName":"main.ts","functionName":"onFrameReceived","argumentNames":["handler"]}
 
-function webcam_onFrameReceived__P19587_mk(s) {
+function webcam_onFrameReceived__P32082_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: webcam_onFrameReceived__P19587, depth: s.depth + 1,
+        parent: s, fn: webcam_onFrameReceived__P32082, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -1588,7 +1588,7 @@ function webcam_onFrameReceived__P19587_mk(s) {
 
 
 
-function inline__P21641(s) {
+function inline__P32089(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1603,7 +1603,7 @@ switch (step) {
     s.tmp_0 = lambda_1_mk(s);
     s.tmp_0.argL = s.caps[0];
     setupLambda(s.tmp_0, s.tmp_0.argL);
-    s.callLocIdx = 64; s.pc = 3; return s.tmp_0;
+    s.callLocIdx = 62; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
   case 1:
@@ -1612,12 +1612,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P21641.info = {"start":534,"length":74,"line":19,"column":47,"endLine":22,"endColumn":9,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
+inline__P32089.info = {"start":534,"length":74,"line":19,"column":47,"endLine":22,"endColumn":9,"fileName":"main.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P21641_mk(s) {
+function inline__P32089_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P21641, depth: s.depth + 1,
+        parent: s, fn: inline__P32089, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
 } }
@@ -1995,7 +1995,7 @@ function inline__P21761_mk(s) {
 
 
 
-function webcam_init__P21637(s) {
+function webcam_init__P32085(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2005,16 +2005,16 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    r0 = pxsim_numops_toBoolDecr(globals.initialized___21634);
+    r0 = pxsim_numops_toBoolDecr(globals.initialized___32079);
     if (!r0) { step = 1; continue; }
     { step = 3; continue; }
   case 1:
   case 2:
-    globals.initialized___21634 = (true);
+    globals.initialized___32079 = (true);
     s.tmp_0 = control_simmessages_onReceived__P16539_mk(s);
-    s.tmp_0.arg0 = globals.CHANNEL___21627;
-    s.tmp_0.arg1 = inline__P21648;
-    s.callLocIdx = 66; s.pc = 4; return s.tmp_0;
+    s.tmp_0.arg0 = globals.CHANNEL___32072;
+    s.tmp_0.arg1 = inline__P32096;
+    s.callLocIdx = 64; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
   case 3:
@@ -2022,12 +2022,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-webcam_init__P21637.info = {"start":621,"length":321,"line":25,"column":4,"endLine":34,"endColumn":5,"fileName":"main.ts","functionName":"init","argumentNames":[]}
+webcam_init__P32085.info = {"start":621,"length":321,"line":25,"column":4,"endLine":34,"endColumn":5,"fileName":"main.ts","functionName":"init","argumentNames":[]}
 
-function webcam_init__P21637_mk(s) {
+function webcam_init__P32085_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: webcam_init__P21637, depth: s.depth + 1,
+        parent: s, fn: webcam_init__P32085, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
 } }
@@ -2036,7 +2036,7 @@ function webcam_init__P21637_mk(s) {
 
 
 
-function inline__P21648(s) {
+function inline__P32096(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -2051,18 +2051,18 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = pxsim.image.ofBuffer(s.arg0);
-    globals.currentFrame___19586 = (r0);
+    globals.currentFrame___32081 = (r0);
     r0 = pxsim.control.raiseEvent(4567, 1);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-inline__P21648.info = {"start":757,"length":178,"line":29,"column":48,"endLine":33,"endColumn":9,"fileName":"main.ts","functionName":"inline","argumentNames":["msg"]}
+inline__P32096.info = {"start":757,"length":178,"line":29,"column":48,"endLine":33,"endColumn":9,"fileName":"main.ts","functionName":"inline","argumentNames":["msg"]}
 
-function inline__P21648_mk(s) {
+function inline__P32096_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P21648, depth: s.depth + 1,
+        parent: s, fn: inline__P32096, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   arg0: undefined,
 } }
@@ -39273,7 +39273,7 @@ const sprites_StaticObstacle__C18268_VT = mkVTable({
   },
 });
 
-const breakpoints = setupDebugger(1, ["currentFrame___19586","initialized___21634","CHANNEL___21627"])
+const breakpoints = setupDebugger(1, ["currentFrame___32081","initialized___32079","CHANNEL___32072"])
 
-return _main___P31997
+return _main___P32137
 })
