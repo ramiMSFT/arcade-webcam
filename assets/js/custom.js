@@ -43,7 +43,7 @@ function packImage(hex) {
         r[i >> 1] = parseInt(header.slice(i, i + 2), 16)
     }
 
-    for (let i = 8; i < hex.length; i += 2) {
+    for (let i = header.length; i < hex.length; i += 2) {
         r[i >> 1] = (parseInt(hex[i + 0], 16) & 0x0f) | ((parseInt(hex[i + 1], 16) & 0x0f) << 4);
     }
     return r
