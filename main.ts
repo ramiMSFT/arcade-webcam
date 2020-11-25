@@ -41,5 +41,9 @@ webcam.onFrameReceived(function() {
     if (frame) {
         scene.setBackgroundImage(frame)
     }
-    scene.setBackgroundColor(Math.pickRandom([1,2,3,4,5,6,7,8,9,10,11,12,13,14]))
+})
+
+game.onUpdate(function() {
+      scene.setBackgroundColor(Math.pickRandom([1,2,3,4,5,6,7,8,9,10,11,12,13,14]))
+  
 })
