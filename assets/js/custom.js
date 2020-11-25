@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 const header = "8704A00078000000";
 
 function packImage(hex) {
-    let r = new Uint8Array(8 + hex.length >> 1);
+    let r = new Uint8Array(8 + (hex.length >> 1));
 
     for (let i = 0; i < header.length; i += 2) {
         r[i >> 1] = parseInt(header.slice(i, i + 2), 16)
