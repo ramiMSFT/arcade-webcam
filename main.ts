@@ -29,8 +29,8 @@ namespace webcam {
 
         control.simmessages.onReceived(CHANNEL, function(msg: Buffer) {
             // buffer is the encoded image
-            currentFrame = image.ofBuffer(msg);
-            control.raiseEvent(EVENT_ID, FRAME_EVENT)
+            //currentFrame = image.ofBuffer(msg);
+            //control.raiseEvent(EVENT_ID, FRAME_EVENT)
         })
     }
 }
